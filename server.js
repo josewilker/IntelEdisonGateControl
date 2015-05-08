@@ -24,6 +24,8 @@ console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to t
 var AIO_pin = 0;//setup access analog input Analog pin #0 (A0) i.e. output of potentiometer. Assuming values read is between 0 and 1000.
 var Servo_pin = 9;//Initialize PWM on Digital Pin #5 (D5) and enable the pwm pin
 var PWM_period_us = 20000;
+var Servo_Open = 90;
+var Servo_Close = 0;
 
 var analogPin0 = new mraa.Aio(AIO_pin);
 var pwm = new mraa.Pwm(Servo_pin);
@@ -174,7 +176,7 @@ function gateOpen() {
     console.log(messageStatus.gateIsOpening);
 
     setTimeout(function(){
-        pwm.write('90');
+        pwm.write(Servo_Open);
         console.log(messageStatus.gateOpened);
         setGateStatus(firedStatus.open);
         sendSmartData();
@@ -189,7 +191,7 @@ function gateClosing() {
 
     console.log(messageStatus.gateIsClosing);
     setTimeout(function(){
-        pwm.write('0');
+        pwm.write(Servo_Close);
         console.log(messageStatus.gateClosed);
         setGateStatus(firedStatus.close);
         sendSmartData();
