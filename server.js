@@ -174,7 +174,7 @@ function gateOpen() {
     console.log(messageStatus.gateIsOpening);
 
     setTimeout(function(){
-        pwm.write(90);
+        pwm.write('90');
         console.log(messageStatus.gateOpened);
         setGateStatus(firedStatus.open);
         sendSmartData();
@@ -189,7 +189,7 @@ function gateClosing() {
 
     console.log(messageStatus.gateIsClosing);
     setTimeout(function(){
-        pwm.write(0);
+        pwm.write('0');
         console.log(messageStatus.gateClosed);
         setGateStatus(firedStatus.close);
         sendSmartData();
