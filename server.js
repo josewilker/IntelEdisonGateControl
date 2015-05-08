@@ -81,6 +81,7 @@ console.log("First status gate: " + getGateStatus());
 server.on('published', function(packet, client) {
 
     topic = packet.topic;
+    console.log(topic);
 
     switch(topic) {
         case firedStatus.open:
