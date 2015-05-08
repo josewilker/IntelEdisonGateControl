@@ -34,7 +34,7 @@ pwm.enable(true);
 // MOSCA + MQTT - SETTINGS
 var mosca = require('mosca');
 var settings = {
-    port: 1883
+    port: 1884
 };
 var server = new mosca.Server(settings);
 
