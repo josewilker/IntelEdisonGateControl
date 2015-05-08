@@ -181,7 +181,7 @@ function gateOpen() {
     console.log(messageStatus.gateIsOpening);
 
     setTimeout(function(){
-        controlServo(0);
+        controlServo(1);
         console.log(messageStatus.gateOpened);
         setGateStatus(firedStatus.open);
         sendSmartData();
@@ -196,7 +196,7 @@ function gateClosing() {
 
     console.log(messageStatus.gateIsClosing);
     setTimeout(function(){
-        controlServo(1);
+        controlServo(0);
         console.log(messageStatus.gateClosed);
         setGateStatus(firedStatus.close);
         sendSmartData();
