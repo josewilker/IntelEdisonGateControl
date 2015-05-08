@@ -1,0 +1,7 @@
+{
+  "name": "IntelEdisonGateControl",
+  "version": "0.0.0",
+  "dependencies": {
+    "mosca": "^0.30.0"
+  }
+}
