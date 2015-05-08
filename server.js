@@ -18,6 +18,14 @@ _saConnectKey = "Basic ODFiZDkzM2U0NzUzYTQ1MzI5YzJlM2QzMDJjYTMxNTU6V2pZSE9WWm5BR
 require("./smartclient/smartapi/main.js");
 SMARTAPI.connect(function(){});
 
+var mraa = require("mraa"); //require mraa
+console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to the Intel XDK console
+var analogPin0 = new mraa.Aio(AIO_pin);
+var pwm = new mraa.Pwm(Servo_pin);
+pwm.enable(false);
+pwm.period_us(PWM_period_us);
+pwm.enable(true);
+
 // MOSCA + MQTT - SETTINGS
 var mosca = require('mosca');
 var settings = {
