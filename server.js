@@ -213,11 +213,12 @@ function gateClose() {
 
 
 function controlServo(t) {
-
+    /*
     var options = {
       host: 'http://10.92.137.60:8092',
       path: '/?' + t
     };
-    http.request(options, function(){}).end();
+    http.request(options, function(){}).end();*/
+    http.get('http://10.92.137.60:8092/?' + t, function(){})
 
 }
