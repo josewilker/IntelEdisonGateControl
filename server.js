@@ -24,6 +24,7 @@ console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to t
 var AIO_pin = 0;//setup access analog input Analog pin #0 (A0) i.e. output of potentiometer. Assuming values read is between 0 and 1000.
 var Servo_pin = 9;//Initialize PWM on Digital Pin #5 (D5) and enable the pwm pin
 var PWM_period_us = 20000;
+
 var Servo_Open = 90;
 var Servo_Close = 0;
 
