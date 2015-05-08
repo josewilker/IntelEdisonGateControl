@@ -18,6 +18,7 @@ _saConnectKey = "Basic ODFiZDkzM2U0NzUzYTQ1MzI5YzJlM2QzMDJjYTMxNTU6V2pZSE9WWm5BR
 require("./smartclient/smartapi/main.js");
 SMARTAPI.connect(function(){});
 
+/*
 var mraa = require("mraa"); //require mraa
 console.log('MRAA Version: ' + mraa.getVersion()); //write the mraa version to the Intel XDK console
 
@@ -33,6 +34,9 @@ var pwm = new mraa.Pwm(Servo_pin);
 pwm.enable(false);
 pwm.period_us(PWM_period_us);
 pwm.enable(true);
+*/
+
+var http = require('http');
 
 // MOSCA + MQTT - SETTINGS
 var mosca = require('mosca');
@@ -177,7 +181,7 @@ function gateOpen() {
     console.log(messageStatus.gateIsOpening);
 
     setTimeout(function(){
-        pwm.write(Servo_Open);
+        controlServo(0);
         console.log(messageStatus.gateOpened);
         setGateStatus(firedStatus.open);
         sendSmartData();
@@ -192,7 +196,7 @@ function gateClosing() {
 
     console.log(messageStatus.gateIsClosing);
     setTimeout(function(){
-        pwm.write(Servo_Close);
+        controlServo(1);
         console.log(messageStatus.gateClosed);
         setGateStatus(firedStatus.close);
         sendSmartData();
@@ -205,4 +209,15 @@ function gateClosing() {
  */
 function gateClose() {
     console.log(messageStatus.gateClosed);
+}
+
+
+function controlServo(t) {
+
+    var options = {
+      host: 'http://10.92.137.60:8092',
+      path: '/?' + t
+    };
+    http.request(options, function(){}).end();
+
 }
