@@ -13,8 +13,8 @@
 
 // S.M.A.R.T - SETTINGS
 _saApiUrl = "www.smartapps.com.br";
-_saSchema = "6478c499a047234defbd2dcdb489625d";
-_saConnectKey = "Basic ODFiZDkzM2U0NzUzYTQ1MzI5YzJlM2QzMDJjYTMxNTU6V2pZSE9WWm5BRGtOYndsdA==";
+_saSchema = "";
+_saConnectKey = "";
 require("./smartclient/smartapi/main.js");
 SMARTAPI.connect(function(){});
 
